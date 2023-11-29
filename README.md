@@ -1,2 +1,2 @@
 # curso-senac
-Atividades do Curso Senac -  Front End
+Atividades do Curso Senac -  Back End
