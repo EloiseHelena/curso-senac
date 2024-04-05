@@ -129,9 +129,9 @@ while True:
     
          criar_conjunto = int(input('Insira os números desejados do conjunto:'))
          meu_conjunto.add(criar_conjunto)
-         print(f'Número adicionando com sucesso! Seu primeiro conjunto possui esses valores:\n {meu_conjunto}\n')
+         print('Número adicionando com sucesso!\n')
      
-        print('Escolha de que forma o ordemento será realizado:\n01 = CRESCENTE\n02 = DESCRESCENTE\n')
+        print('Escolha de que forma o ordenamento será realizado:\n01 = CRESCENTE\n02 = DESCRESCENTE\n')
         while True:
          escolha = (input('Digite o modo desejado:  ')) 
          
@@ -141,16 +141,22 @@ while True:
           break
          
          elif escolha == '02':
-             print()
+             ordenar_decrescente = sorted(meu_conjunto, reverse=True)
+             print(f'Este é seu conjunto em ordem decrescente: {ordenar_decrescente}')
+             break
+         else:
+             print('Opção inválida, digite as opções entre 01 - Ordem Crescente ou 02 - Ordem Decrescente! ')
+             break
             
-            
-                 
-                 
-                    
-                
+       
    
     elif exercicio == '07':
         print('**********EXERCÍCIO 07 - REMOÇÃO DE ELEMENTOS DUPLICADOS*********')
+        
+        
+        
+        
+        
     
     elif exercicio == '08':
         print('**********EXERCÍCIO 08 - JOGO DE ADIVINHAÇÃO COM CONJUNTOS*********')
