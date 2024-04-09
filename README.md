@@ -1,2 +1,2 @@
 # curso-senac
-Atividades do Curso Senac -  Back End em Python
+Atividades do Curso Senac -  Backend em Python
