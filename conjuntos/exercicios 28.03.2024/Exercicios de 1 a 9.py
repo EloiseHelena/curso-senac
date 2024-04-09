@@ -184,7 +184,7 @@ while True:
              print('Esse número não está no conjunto.\n')
              break
             
-        print(f'Seu conjunto é {conjunto_chutes}')
+        print(f'Seu conjunto é: {conjunto_chutes}')
         print(f'O conjunto secreto é: {conjunto_jogo}')
              
          
