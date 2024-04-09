@@ -1,4 +1,4 @@
-elemento = str
+
 numero = 0
 meu_conjunto = set()
 segundo_conjunto = set()
@@ -7,7 +7,9 @@ diferenca = set()
 uniao = set()
 ordenar_crescente = int
 ordenar_decrescente = int
-remover_duplicados = str
+remover_duplicados = set()
+conjunto_jogo = {8, 9, 1, 3, 5}
+conjunto_chutes = set()
 
 print('**********EXERCÍCIOS DO DIA 28/03/03 - CONJUNTOS********** \n')
 print('01 = Verificação de um elemento em um conjunto.\n02 = Interseção de conjunto.\n03 = Diferença de conjuntos.\n04 = União de conjuntos.\n05 = Subconjuntos.\n06 = Ordenação de elementos em um conjunto.\n07 = Remoção de elementos duplicados.\n08 = Jogo de adivinhação com conjuntos.\n09 = Cálculo de média, mediana e moda de um conjunto.\n10 = Sair.\n')
@@ -155,30 +157,38 @@ while True:
         print('**********EXERCÍCIO 07 - REMOÇÃO DE ELEMENTOS DUPLICADOS*********')
         for numero in range(4):
     
-         criar_conjunto = str(input('Insira os números ou itens desejados do conjunto:'))
+         criar_conjunto = int(input('Insira os números ou itens desejados do conjunto:'))
          meu_conjunto.add(criar_conjunto)
          print(f'Item adicionando com sucesso! Seu primeiro conjunto possui esses valores:\n {meu_conjunto}\n')
          
-        while True:
-         if elemento in meu_conjunto:
-            remover_duplicados.add(elemento)
+        while True: 
+         for numero in meu_conjunto:
+            remover_duplicados.add(numero)
             
          print(f'Foram removidas as duplicatas, seu conjunto ficou assim: {remover_duplicados}')
          break
-        else:
-         print('Não há duplicata a ser removida!')
-         break
-          
-        
+       
          
-                
-        
-    
+          
     elif exercicio == '08':
         print('**********EXERCÍCIO 08 - JOGO DE ADIVINHAÇÃO COM CONJUNTOS*********')
-        
+       
+        for numero in range(5):
+         adivinhar = int(input('Tente adivinhar os números entre 1 e 10 do conjunto: '))
+         conjunto_chutes.add(numero)
+         while True:
+            if adivinhar in conjunto_jogo:
+                print('Esse número está no conjunto.\n')
+                break
+            else:
+             print('Esse número não está no conjunto.\n')
+             break
+            
+        print(f'Seu conjunto é {conjunto_chutes}')
+        print(f'O conjunto secreto é: {conjunto_jogo}')
+             
          
-    
+         
     elif exercicio == '09':
         print('**********EXERCÍCIO 09 - CÁLCULO DE MÉDIA, MEDIANA E MODA EM CONJUNTO*********')
         for numero in range(6):
