@@ -1,4 +1,3 @@
-
 numero = 0
 meu_conjunto = set()
 segundo_conjunto = set()
@@ -10,6 +9,11 @@ ordenar_decrescente = int
 remover_duplicados = set()
 conjunto_jogo = {8, 9, 1, 3, 5}
 conjunto_chutes = set()
+media = set()
+mediana = set()
+moda = set()
+subconjunto = set()
+
 
 print('**********EXERCÍCIOS DO DIA 28/03/03 - CONJUNTOS********** \n')
 print('01 = Verificação de um elemento em um conjunto.\n02 = Interseção de conjunto.\n03 = Diferença de conjuntos.\n04 = União de conjuntos.\n05 = Subconjuntos.\n06 = Ordenação de elementos em um conjunto.\n07 = Remoção de elementos duplicados.\n08 = Jogo de adivinhação com conjuntos.\n09 = Cálculo de média, mediana e moda de um conjunto.\n10 = Sair.\n')
@@ -121,10 +125,30 @@ while True:
     elif exercicio == '05':
         print('**********EXERCÍCIO 05 - SUBCONJUNTOS*********')
         
-      
-        
-        
-
+        for numero in range(6):
+    
+         criar_conjunto = int(input('Insira os números desejados do primeiro conjunto:'))
+         meu_conjunto.add(criar_conjunto)
+         print(f'Número adicionando com sucesso! Seu primeiro conjunto possui esses valores:\n {meu_conjunto}\n')
+         
+        for numero in range(4):
+         criar_segundo_conjunto = int(input('Insira os números desejados para um segundo conjunto:'))
+         segundo_conjunto.add(criar_segundo_conjunto)
+         print(f'Número adicionando com sucesso! Seu segundo conjunto possui esses valores:\n {segundo_conjunto}\n')
+         
+        print(f'O primeiro e o segundo conjunto são respectivamnete: {meu_conjunto} e {segundo_conjunto}.')
+         
+        while True:
+            subconjunto = meu_conjunto.issubset(segundo_conjunto)
+            if subconjunto != set():
+                print('O primeiro conjunto é um subconjunto do segundo conjunto')
+                break
+            else:
+                 print('O primeiro conjunto não é um subconjunto do segundo conjunto')
+                 break
+                     
+         
+         
     elif exercicio == '06':
         print('**********EXERCÍCIO 06 - ORDENAÇÃO DE ELEMENTOS EM UM CONJUNTO*********')
         
@@ -191,11 +215,54 @@ while True:
          
     elif exercicio == '09':
         print('**********EXERCÍCIO 09 - CÁLCULO DE MÉDIA, MEDIANA E MODA EM CONJUNTO*********')
-        for numero in range(6):
+        for numero in range(4):
     
          criar_conjunto = int(input('Insira os números desejados do conjunto:'))
          meu_conjunto.add(criar_conjunto)
          print(f'Número adicionando com sucesso! Seu primeiro conjunto possui esses valores:\n {meu_conjunto}\n')
+         
+        while True:
+         print('OPÇÕES DE CALCULO:\n01 = MÉDIA\n02 = MEDIANA\n03 = MODA')
+         escolha = (input('Digite o modo desejado:  ')) 
+         
+         if escolha == '01':
+          somar = sum(meu_conjunto)
+          media = somar / len(meu_conjunto)
+          print(f'Este é a média do seu conjunto: {media}')
+          break
+         
+         elif escolha == '02':
+             list(meu_conjunto)
+             ordenar_crescente = sorted(meu_conjunto)
+             
+             if len(ordenar_crescente) % 2 == 0:
+                m1 = ordenar_crescente[len(ordenar_crescente) // 2]
+                m2 = ordenar_crescente[len(ordenar_crescente) // 2 - 1]
+                mediana = (m1 + m2) / 2
+             else:
+                 mediana = ordenar_crescente[len(ordenar_crescente) // 2]
+             print(f'Esta é a mediana do seu conjunto: {mediana}')
+             break
+         
+         elif escolha == '03':
+             list(meu_conjunto)
+             
+             if meu_conjunto:
+                 frequencia = {}
+                 for i in meu_conjunto:
+                     frequencia.setdefault(i, 0)
+                     frequencia[i] += 1
+                 frequente = max(frequencia.values())
+                 moda = [i for i, j in frequencia.items() if j == frequente]
+                 moda_convertida = set(moda)
+                 
+                 print(f'Este é a moda do seu conjunto: {moda_convertida}')
+                 break
+         
+         else:
+             print('Opção inválida, digite as opções entre 01 - MÉDIA, 02 - MEDIANA ou 03 - MODA! ')
+             break
+         
          
          
     
