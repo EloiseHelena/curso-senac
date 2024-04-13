@@ -34,11 +34,15 @@ while True:
       
     elif operacao == '4': 
      def divisao(n1, n2):
-        return n1 / n2
+         if n1 == 0 or n2 == 0:
+             print('Não é possível dividir por 0!!')
+         else:
+            div = n1 / n2
+            print(f'O resultado da divisão é: {div}') 
+          
      n1 = float (input('Insira o primeiro número: '))
      n2 = float(input('Insira o segundo número: '))
-     resultado = (n1/n2)
-     print(f'O resultado da divisão é: {resultado:.2f}') 
+     resultado = divisao(n1, n2)
      
      
     elif operacao == '5': 
