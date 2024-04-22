@@ -1,6 +1,3 @@
-import time
-
-
 print('*************** CONTA BANCÁRIA **************')
 
 class Banco:
@@ -74,9 +71,7 @@ def login():
         
       if menu == '2':
          print('Você saiu do programa...  \n')
-         for _ in tqdm(range(2)):
-            time.sleep(1)
-         quit()
+         
       else:
          print('Opção inválida!')
         
