@@ -20,6 +20,7 @@ class Funcionario:
         self.cargo = novo_cargo
         self.salario = novo_salario
         
+        
     def bonificar(self, bonus):
         self.salario += bonus  
         self.bonus += bonus
@@ -43,7 +44,7 @@ class Gerente(Funcionario):
         print(f'Área Gerenciada: {self.area_gerenciada}')  
         print(f'Bônus Adicional: R${self.bonus}\n')
         
-funcionario1 = Funcionario('Eloise', 'Analista Junior', 3000,'01/04/2022', 250)
+funcionario1 = Funcionario('Eloise', 'Analista Junior', 3000,'01/04/2023', 250)
 gerente1 = Gerente('Helena','Gerente de Setor', 5000, '01/01/2002', 500, 'TI')
 
 
@@ -52,9 +53,11 @@ print('_____Dados do Funcionário:_____\n')
 funcionario1.apresentar_dados()
 
 print('\n<<<< Promoção do funcionário: >>>>')
+print('Data de promoção: 01/04/2024')
 funcionario1.promover('Analista Pleno', 3500)
 funcionario1.bonificar(500)
 funcionario1.apresentar_dados()
+
 
 print('\n_____Dados do Gerente:_____')
 gerente1.apresentar_dados()
