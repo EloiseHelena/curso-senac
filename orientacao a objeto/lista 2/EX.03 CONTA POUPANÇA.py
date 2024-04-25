@@ -24,9 +24,6 @@ class ContaBancaria:
         else:
          print("Saldo insuficiente.")
          
-    def taxa(self):
-        return self.taxa_juros / 100
-    
         
 class ContaPoupanca(ContaBancaria):
     def __init__(self, titular, saldo, taxa_juros, rendimento_mensal):
@@ -36,10 +33,12 @@ class ContaPoupanca(ContaBancaria):
       
        
     def calcular_rendimento(self):
-        return self.saldo * self.taxa_juros - self.saldo
+        self.rendimento_mensal = self.saldo * self.taxa_juros / 100
+        return self.rendimento_mensal
+    
     
 conta1 = ContaBancaria('TITULAR', 50.00, 0.5)
-poupanca1 = ContaPoupanca('MARIA', 50.00, 0.5, 'rendimento')
+poupanca1 = ContaPoupanca('MARIA', 50.00, 0.5, 1)
 
 def login():
     while True:
@@ -101,7 +100,7 @@ def login():
                     
                 elif menu3 == '4':
                     print('A taxa Selic está em alta! Sua Poupança está rendendo 0.5%.')
-                    poupanca1.calcular_rendimento()
+                    print(f'Seu rendimento mensal está em R$ {poupanca1.calcular_rendimento()}')
                 
                 elif menu3 == '5':
                     print()
