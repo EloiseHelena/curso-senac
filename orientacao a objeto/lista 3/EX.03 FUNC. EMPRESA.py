@@ -2,7 +2,11 @@ class Funcionario:
     def __init__(self, nome, salario):
         self.nome = nome
         self.salario = salario
-
+        
+    def apresentar_dados(self):
+        print(f'Nome: {self.nome}')
+        print(f'Salário: R${self.salario}')
+        
 
 class Gerente(Funcionario):
     def __init__(self, nome, salario, bonus):
@@ -10,12 +14,12 @@ class Gerente(Funcionario):
         super().__init__(nome, salario)
         self.bonus = bonus
         
-    def bonificar(self, bonus):
-        self.salario += bonus  
-        self.bonus += bonus
+    def apresentar_dados(self):
+        super().apresentar_dados()
+        print(f'Bônus: R${self.bonus * vendas_totais:.2f}\n')
         
     def calcular_pagamento(self):
-        return self.salario + self.bonus
+        print(f'Ganhos Totais: R${self.bonus * vendas_totais + self.salario}')
              
     def adicionar_funcionario(self, funcionario, lista_funcionarios):
         lista_funcionarios.append(funcionario)
@@ -26,38 +30,43 @@ class Vendedor(Funcionario):
         super().__init__(nome, salario)
         self.comissao = comissao
         
-    def calcular_comissao (self, vendas):
-        return self.comissao * vendas
+    def apresentar_dados(self):
+        super().apresentar_dados()
+        print(f'Comissão: R${self.comissao * vendas_vendedor1:.2f}')
+        
+    def calcular_pagamento(self):
+        print(f'Ganhos Totais: R${self.comissao * vendas_vendedor1 + self.salario:.2f}\n')
+        
     
-gerente1 = Gerente('Júlia', 5000, 500)
-vendedor1 = Vendedor('Bruna', 2500, 0.5)
+    
+    
+gerente1 = Gerente('Júlia', 5000, 0.1)
+vendedor1 = Vendedor('Bruna', 2500, 0.05)
 
+vendas_totais = 20000
 vendas_vendedor1 = 2000
-comissao_vendedor1 = vendedor1.calcular_comissao(vendas_vendedor1)
-comissao_gerente1 = gerente1.bonificar(200)
+
 
 lista_funcionarios = [gerente1, vendedor1]
 
-for funcionario in lista_funcionarios:
-    print(f'Nome: {funcionario.nome}')
-    print(f'Salário: R${funcionario.salario}')
-if isinstance(funcionario, Gerente): 
-    print(f'Bônus: {comissao_gerente1}\n')
-elif isinstance(funcionario, Vendedor):
-    print(f'Comissão: R${comissao_vendedor1}')
-    print()
+
+print('__________Lista de funcionários_________')
+gerente1.apresentar_dados()
+gerente1.calcular_pagamento()
+
+vendedor1.apresentar_dados()
+vendedor1.calcular_pagamento()
+
 
 
 novo_funcionario = Funcionario("Cauã", 2500)
 gerente1.adicionar_funcionario(novo_funcionario, lista_funcionarios)
 
-print('__________Lista de funcionários atualizada:__________\n')
+print('\n__________Lista de funcionários atualizada:__________')
 for funcionario in lista_funcionarios:
     print(f'Nome: {funcionario.nome}')
-    print(f'Salário: R${funcionario.salario}\n')
-if isinstance(funcionario, Gerente):
-    print(f'Bônus: R${funcionario.bonus}')
-elif isinstance(funcionario, Vendedor):
-    print(f'Comissão: R${comissao_vendedor1}')
-    print()
+    print(f'Salário: R${funcionario.salario:.2f}\n')
+
+
+    
         
